@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: credit-risk-ml
+    ports:
+      - "8001:8001"
+    networks:
+      - credit-risk-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: credit-risk-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - ML_SERVICE_URL=http://ml-service:8001
+    depends_on:
+      - ml-service
+    networks:
+      - credit-risk-network
+
+  frontend-agent:
+    build:
+      context: ./frontend-agent
+      dockerfile: Dockerfile
+    container_name: credit-risk-agent
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
+    networks:
+      - credit-risk-network
+
+  frontend-dashboard:
+    build:
+      context: ./frontend-dashboard
+      dockerfile: Dockerfile
+    container_name: credit-risk-dashboard
+    ports:
+      - "8502:8502"
+    depends_on:
+      - backend
+    networks:
+      - credit-risk-network
+
+networks:
+  credit-risk-network:
+    driver: bridge
