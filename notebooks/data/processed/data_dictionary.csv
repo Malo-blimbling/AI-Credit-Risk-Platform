@@ -1,0 +1,25 @@
+Variable,Type,Valeurs manquantes,Valeurs uniques,Description
+LIMIT_BAL,int64,0,81,Montant de la limite de crédit (NT$)
+SEX,int64,0,2,"Sexe (1=male, 2=female)"
+EDUCATION,int64,0,7,"Niveau d'éducation (1=graduate school, 2=university, 3=high school, 4=others)"
+MARRIAGE,int64,0,4,"Situation familiale (1=marié, 2=célibataire, 3=autres)"
+AGE,int64,0,56,Âge
+PAY_0,int64,0,11,Historique de paiement - Septembre
+PAY_2,int64,0,11,Historique de paiement - Août
+PAY_3,int64,0,11,Historique de paiement - Juillet
+PAY_4,int64,0,11,Historique de paiement - Juin
+PAY_5,int64,0,10,Historique de paiement - Mai
+PAY_6,int64,0,10,Historique de paiement - Avril
+BILL_AMT1,int64,0,22723,Montant facture - Septembre
+BILL_AMT2,int64,0,22346,Montant facture - Août
+BILL_AMT3,int64,0,22026,Montant facture - Juillet
+BILL_AMT4,int64,0,21548,Montant facture - Juin
+BILL_AMT5,int64,0,21010,Montant facture - Mai
+BILL_AMT6,int64,0,20604,Montant facture - Avril
+PAY_AMT1,int64,0,7943,Montant remboursé - Septembre
+PAY_AMT2,int64,0,7899,Montant remboursé - Août
+PAY_AMT3,int64,0,7518,Montant remboursé - Juillet
+PAY_AMT4,int64,0,6937,Montant remboursé - Juin
+PAY_AMT5,int64,0,6897,Montant remboursé - Mai
+PAY_AMT6,int64,0,6939,Montant remboursé - Avril
+default,int64,0,2,"Défaut de paiement (1=oui, 0=non)"

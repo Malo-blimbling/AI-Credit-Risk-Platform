@@ -1,0 +1,54 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Modèles (optionnel, mais on garde les plus petits)
+# *.pkl
+
+# Maven / Spring Boot
+target/
+*.jar
+*.war
+*.ear
+*.class
+.mvn/
+.m2/
+
+# IntelliJ / VS Code
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Docker
+*.pid
+*.pid.lock
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
