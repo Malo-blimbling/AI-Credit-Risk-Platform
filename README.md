@@ -24,37 +24,29 @@ Cette plateforme est conçue pour aider les institutions financières à évalue
 
 ## Stack technologique
 
-- Python
+- Java et Spring Boot pour l’API métier
+- React, TypeScript et Vite pour l’interface web
+- Python pour le service de prédiction et l’analyse des données
 - scikit-learn
 - XGBoost / LightGBM
 - pandas / NumPy
 - Jupyter Notebook
-- FastAPI ou Flask (pour servir les prédictions)
-- PostgreSQL / SQLite / BigQuery (selon le déploiement)
-- Docker
-- Streamlit ou Power BI pour le tableau de bord
+- FastAPI pour le service ML
+- Docker Compose pour lancer les services
 - MLflow pour le suivi des expériences
 
 ## Structure du projet
 
 ```text
 AI-Credit-Risk-Platform/
-├── app/
-│   ├── api/
-│   ├── dashboard/
-│   └── services/
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── external/
-├── models/
-│   ├── trained/
-│   └── experiments/
+├── backend/       # API Spring Boot
+├── front/         # Interface React/Vite
+├── ml-service/    # API Python/FastAPI et modèle ML
+├── data/          # Données préparées
+├── models/        # Métadonnées et seuils du modèle
 ├── notebooks/
-├── scripts/
-├── tests/
+├── docker-compose.yml
 ├── requirements.txt
-├── Dockerfile
 ├── README.md
 └── .gitignore
 ```
@@ -83,43 +75,33 @@ La plateforme peut être configurée pour prédire :
 
 ### Prérequis
 
-- Python 3.10+
-- pip ou conda
-- Git
-- Optionnel : Docker et PostgreSQL
-
-### Installation
-
-```bash
-git clone https://github.com/your-org/AI-Credit-Risk-Platform.git
-cd AI-Credit-Risk-Platform
-python -m venv .venv
-source .venv/bin/activate   # Windows : .venv\Scripts\activate
-pip install -r requirements.txt
-```
+- Docker et Docker Compose
+- Node.js et npm pour lancer l’interface React
 
 ### Lancer l’application
 
 ```bash
-python app/main.py
+docker compose up --build
 ```
 
-Ou, si vous utilisez un service de tableau de bord :
+Dans un autre terminal, lancer l’interface web :
 
 ```bash
-streamlit run app/dashboard/app.py
+cd front
+npm install
+npm run dev
 ```
 
-## Variables d’environnement
+Vite affiche l’adresse locale à ouvrir dans le navigateur. Les requêtes `/api` sont relayées vers le backend Spring Boot sur le port `8080`.
 
-Créez un fichier `.env` avec des variables telles que :
+### Comptes de démonstration
 
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/credit_risk
-MODEL_PATH=models/trained/latest_model.pkl
-API_HOST=0.0.0.0
-API_PORT=8000
-```
+Les comptes locaux sont définis dans la configuration Spring Security :
+
+- Agent : `agent` / `agent123`
+- Responsable : `responsable` / `resp123`
+
+Ces mots de passe sont réservés aux essais locaux. Ils doivent être remplacés avant tout déploiement accessible à d’autres personnes.
 
 ## Exemple de cas d’usage
 
